@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="icon" type="image/png" href="./assets/icon.jpg" />
+      <link rel="stylesheet" href="./styles.css" />
+      <title>Survey</title>
+   </head>
+   <body>
+      <aside>
+         <div id="profile-content">
+            <img
+               id="profile-image"
+               src="./assets/logo.jpg"
+               alt="Survey"
+               />
+            <h4>
+               Consumer Preference Assessment<br />Performance, Price, Design, or Ease of use
+            </h4>
+            <div class="line"></div>
+            <div id="instructions">
+               <h5>Instructions:</h5>
+               <p>For each of the following statements, please assign a number to every phrase based on your preferences.</p>
+               <p>Use the following system:</p>
+               <ul>
+                  <li class="tag">1. Don't consider/Not important to me.</li>
+                  <li class="tag">2. Less important to me.</li>
+                  <li class="tag">3. Important to me.</li>
+                  <li class="tag">4. Consider the most/Highly important to me.</li>
+               </ul>
+            </div>
+            <div style="display: flex; justify-content: center;"><ul id="rankingList"></ul></div>
+            <div class="line"></div>
+         </div>
+      </aside>
+      <aside id="mainForm">
+         <form id="surveyForm">
+            <!-- Question 1 -->
+            <div class="question" id="question1" style="display: block">
+               <h2 class="tag">
+                  Question 1:  When considering a purchase, I prioritize:
+               </h2>
+               <br />
+               <label for="q1a"> a) Price comparison with similar products. </label>
+               <select
+                  id="q11"
+                  name="q11"
+                  onchange="updateDropdowns(1)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q1b"
+                  >b) User-friendly features and functionality</label
+                  >
+               <select
+                  id="q12"
+                  name="q12"
+                  onchange="updateDropdowns(1)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q1c"
+                  >c) Visual appeal and attractiveness</label
+                  >
+               <select
+                  id="q13"
+                  name="q13"
+                  onchange="updateDropdowns(1)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q1d"
+                  >d)  Product reviews and ratings.</label
+                  >
+               <select
+                  id="q14"
+                  name="q14"
+                  onchange="updateDropdowns(1)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <!-- Question 2 -->
+            </div>
+            <div class="question" id="question2" style="display: none">
+               <h2 class="tag">Question 2: When selecting a product, I prioritize:</h2>
+               <br />
+               <label for="q2a">a) Achieving optimal performance and functionality.</label>
+               <select
+                  id="q21"
+                  name="q21"
+                  onchange="updateDropdowns(2)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q2b">b) Having a product that is easy to use and requires minimal effort.</label>
+               <select
+                  id="q22"
+                  name="q22"
+                  onchange="updateDropdowns(2)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q2c">c) Obtaining the best value for your money.</label>
+               <select
+                  id="q23"
+                  name="q23"
+                  onchange="updateDropdowns(2)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q2d">d) Owning a visually appealing and stylish product.</label>
+               <select
+                  id="q24"
+                  name="q24"
+                  onchange="updateDropdowns(2)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <!-- Question 3 -->
+            </div>
+            <div class="question" id="question3" style="display: none">
+               <h2 class="tag">
+                  Question 3: When evaluating a product, I prioritize:
+               </h2>
+               <br />
+               <label for="q3a">a) Performance metrics and benchmarks.</label>
+               <select
+                  id="q31"
+                  name="q31"
+                  onchange="updateDropdowns(3)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q3b">b)  Price competitiveness and discounts. </label>
+               <select
+                  id="q32"
+                  name="q32"
+                  onchange="updateDropdowns(3)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q3c"
+                  >c)   Design innovation and uniqueness.</label
+                  >
+               <select
+                  id="q33"
+                  name="q33"
+                  onchange="updateDropdowns(3)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q3d">d) User experience and intuitive interface. </label>
+               <select
+                  id="q34"
+                  name="q34"
+                  onchange="updateDropdowns(3)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <!-- Question 4 -->
+            </div>
+            <div class="question" id="question4" style="display: none">
+               <h2 class="tag">Question 4: Rank your preference for the following attributes in a product:</h2>
+               <br />
+               <label for="q4a"
+                  >a) Competitive pricing and affordability.</label
+                  >
+               <select
+                  id="q41"
+                  name="q41"
+                  onchange="updateDropdowns(4)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q4b"
+                  >b) High performance and advanced features.</label
+                  >
+               <select
+                  id="q42"
+                  name="q42"
+                  onchange="updateDropdowns(4)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q4c"
+                  >c) Attractive and modern design.
+               </label>
+               <select
+                  id="q43"
+                  name="q43"
+                  onchange="updateDropdowns(4)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q4d"
+                  >d) Simple and intuitive operation.</label
+                  >
+               <select
+                  id="q44"
+                  name="q44"
+                  onchange="updateDropdowns(4)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <!-- Question 5 -->
+            </div>
+            <div class="question" id="question5" style="display: none">
+               <h2 class="tag">Question 5: When making a purchasing decision, I prioritize:</h2>
+               <br />
+               <label for="q5a"
+                  >a)  Aesthetics and visual appeal.</label
+                  >
+               <select
+                  id="q51"
+                  name="q51"
+                  onchange="updateDropdowns(5)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q5b"
+                  >b) Price-to-value ratio.</label
+                  >
+               <select
+                  id="q52"
+                  name="q52"
+                  onchange="updateDropdowns(5)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q5c"
+                  >c)  Product reliability and durability.</label
+                  >
+               <select
+                  id="q53"
+                  name="q53"
+                  onchange="updateDropdowns(5)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q5d"
+                  >d) User-friendliness and ease of operation.</label
+                  >
+               <select
+                  id="q54"
+                  name="q54"
+                  onchange="updateDropdowns(5)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+            </select>
+            <!-- Question 6 -->
+            </div>
+            <div class="question" id="question6" style="display: none">
+               <h2 class="tag">
+                  Question 6: Rank the following criteria when evaluating a product:
+               </h2>
+               <br />
+               <label for="q6a">a) User experience and ease of use.</label>
+               <select
+                  id="q61"
+                  name="q61"
+                  onchange="updateDropdowns(6)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q6b">b) Design aesthetics and appeal.</label>
+               <select
+                  id="q62"
+                  name="q62"
+                  onchange="updateDropdowns(6)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q6c">c) Performance and efficiency ratings.</label>
+               <select
+                  id="q63"
+                  name="q63"
+                  onchange="updateDropdowns(6)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+               <label for="q6d">d) Price and value for money.</label>
+               <select
+                  id="q64"
+                  name="q64"
+                  onchange="updateDropdowns(6)"
+                  >
+                  <option value="" selected></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+            </div>
+            <button
+               id="submitButton"
+               class="submit-button"
+               type="button"
+               onclick="showNextQuestion()"
+               disabled="true"
+               >
+            Submit Answers
+            </button>
+         </form>
+         <div id="chartResult" style="display: none; width: 500px;">
+            <canvas id="chart"></canvas>
+         </div>
+      </aside>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="./script.js"></script>
+   </body>
+</html>
