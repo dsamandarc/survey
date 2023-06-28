@@ -1,0 +1,277 @@
+:root {
+  --gray700: #222831;
+  --gray500: #393e46;
+  --gray300: #565e6a;
+  --primary700: #093256;
+  --primary500: #405e78;
+  --accent: #b6c7e9;
+  --warning: #d95a5a;
+  --white: #eeeeee;
+
+  --graph100: #ff9933;
+  --graph200: #ff99cc;
+  --graph300: #00cc66;
+  --graph400: #6699cc;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--gray700);
+  font-family: Nunito, sans-serif;
+  color: var(--white);
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--primary500);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: var(--primary700);
+  color: var(--white);
+  font-size: 0.75em;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  width: fit-content;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-color: var(--primary500);
+  color: var(--white);
+}
+
+button:disabled {
+  background-color: var(--gray500);
+  color: var(--gray300);
+  cursor: not-allowed;
+}
+
+.line {
+  border-bottom: 1px solid var(--primary500);
+  height: 1px;
+}
+
+header {
+  padding: 64px 24px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.6), rgba(34, 40, 49, 1)), url("./assets/logo.jpg");
+  background-size: cover;
+}
+
+header h4 {
+  color: var(--white);
+  text-align: center;
+  text-shadow: 1px 1px 2px var(--gray700);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+ul {
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  text-align: left;
+}
+
+li.tag {
+  font-size: 0.75em;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: baseline;
+  background-color: var(--primary500);
+  font-weight: bold;
+}
+
+li.tag span.marker {
+  font-size: 0.875rem;
+  font-weight: bold;
+  background-color: var(--primary700);
+  padding: 8px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-content {
+  gap: 2.5rem;
+  padding: 24px;
+}
+
+#instructions {
+  gap: 2.5rem;
+  text-align: center;
+}
+
+#instructions h5 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+#instructions p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+#rankingList {
+  display: none;
+  padding: 0 16px;
+}
+
+#rankingList li {
+  padding: 16px;
+  font-size: 1rem;
+  margin: 16px 0;
+  background-color: var(--primary700);
+}
+
+#mainForm {
+  padding: 0 24px 24px;
+}
+
+#surveyForm {
+  gap: 2.5rem;
+}
+
+.question {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--gray500);
+}
+
+.question h2 {
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: var(--gray300);
+  padding: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.question section {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 1.5rem;
+}
+
+.question section .option {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.question section .option label {
+  color: var(--white, #fff);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.question section .option select {
+  padding: 12px;
+  color: var(--white);
+  background: transparent;
+  border: 0;
+  background-color: var(--gray300);
+  border-radius: 8px;
+  min-width: 54px;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  background-image: url("assets/cared_down.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 4px) center;
+}
+
+#chartResult {
+  margin: 0 auto;
+  display: none;
+}
+
+#chartResult div {
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 16px;
+}
+
+#chartResult span {
+  font-size: 0.75em;
+  line-height: 1.6;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chartResult span:before {
+  content: "";
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.category-001:before {
+  background-color: var(--graph100);
+}
+.category-002:before {
+  background-color: var(--graph200);
+}
+.category-003:before {
+  background-color: var(--graph300);
+}
+.category-004:before {
+  background-color: var(--graph400);
+}
+
+@media (min-width: 640px) {
+  main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1024px;
+      margin: 4rem auto;
+  }
+
+  #mainForm {
+      margin-top: 32px;
+  }
+
+  .line {
+      display: none;
+  }
+}
